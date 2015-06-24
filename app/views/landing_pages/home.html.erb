@@ -1,0 +1,32 @@
+<h1><span class="label label-default">Blog App Homepage</span></h1>
+
+<div class="center jumbotron">
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">User Profile</h3>
+    </div>
+    
+    <% if current_user.nil? %>
+      <div class="panel-body">
+        Please Log In First!
+      </div>
+      <div class="panel-body">
+        <%= link_to "Sign In", new_user_session_path, class: "btn btn-primary" %>
+      </div>
+    <% else %>
+      <div class="panel-body">
+        Name: <%= current_user.name %> <br>
+        Username: <%= current_user.username %> <br>
+        Email: <%= current_user.email %> <br>
+        
+        <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %>
+        
+        <hr>
+        
+        <%= link_to "Create New Post!", '#', class: "btn btn-lg btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
